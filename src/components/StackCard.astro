@@ -1,0 +1,146 @@
+<div class="stack bento-card">
+  <span class="stack-label">// stack</span>
+  <ul class="stack-list">
+    <li class="stack-item">
+      <span class="stack-name">&gt; C++</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+    <li class="stack-item">
+      <span class="stack-name">&gt; C</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+    <li class="stack-item">
+      <span class="stack-name">&gt; Python</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+    <li class="stack-item">
+      <span class="stack-name">&gt; Web Dev</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+    <li class="stack-item">
+      <span class="stack-name">&gt; ML / OpenCV</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+    <li class="stack-item">
+      <span class="stack-name">&gt; DSA</span>
+      <span class="stack-dots">
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot filled"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </span>
+    </li>
+  </ul>
+</div>
+
+<style>
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    height: 100%;
+    
+    /* GRADIENT: Fades --> rich espresso base into deep burnt coffee at the top */
+    background: linear-gradient(180deg, var(--burnt-coffee) 0%, var(--balsamico) 100%) !important;
+    border-radius: 16px; 
+    padding: 1.5rem;
+  }
+
+  .stack-label {
+    font-size: 0.7rem;
+    color: var(--whiskey-sour);
+    font-weight: 700;
+  }
+
+  .stack-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%; 
+    padding: 0;
+    margin: 0;
+  }
+
+  .stack-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--champagne);
+    font-weight: 600;
+    cursor: default;
+    padding: 0.25rem 0; 
+  }
+
+  .stack-dots {
+    display: flex;
+    gap: 6px;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .stack-item:hover .stack-dots {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--whiskey-sour);
+    background: transparent;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .dot.filled {
+    background: var(--whiskey-sour);
+  }
+
+  .stack-item:hover .dot {
+    border-color: var(--champagne);
+  }
+  
+  .stack-item:hover .dot.filled {
+    background: var(--champagne);
+  }
+</style>

@@ -1,0 +1,76 @@
+/* FONTS */
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+:root {
+  --bg:             #150C0C;
+  --balsamico:      #150C0C;
+  --burnt-coffee:   #34150F;
+  --honey-garlic:   #85431E;
+  --whiskey-sour:   #D39858;
+  --champagne:      #EACEAA;
+
+  --text:           #EACEAA;
+  --text-muted:     #D39858;
+
+  --font-display:   'Space Grotesk', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-mono);
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-top: 5.5rem;
+}
+
+.bento-card {
+  position: relative;
+  /* Translucent Honey Garlic */
+  border: 1px solid rgba(133, 67, 30, 0.35);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.bento-card:hover { /* The border when hovered */
+  border-color: rgba(211, 152, 88, 0.5); /* Whiskey Sour line */
+}
+
+.theme-light-card {
+  border: 1px solid rgba(52, 21, 15, 0.15); /* Light, soft coffee border on the cream canvas */
+}
+.theme-light-card:hover {
+  border-color: rgba(52, 21, 15, 0.4);
+}
+
+.theme-dark-card { /*cards using dark backgrounds like Burnt Coffee or Honey Garlic */
+  color: var(--champagne) !important;
+}
+.theme-dark-card .muted-label {
+  color: var(--whiskey-sour) !important;
+  opacity: 0.85;
+}
+
+.theme-light-card { /* cards using the light Champagne background */
+  color: var(--balsamico) !important;
+}
+.theme-light-card .muted-label {
+  color: var(--honey-garlic) !important;
+  opacity: 0.9;
+}

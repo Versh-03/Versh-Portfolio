@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import HeroCard from '../components/HeroCard.astro'
+import StackCard from '../components/StackCard.astro'
+import CompetitiveCard from '../components/CompetitiveCard.astro'
+import GameCard from '../components/GameCard.astro'
+import Project1 from '../components/project1.astro'
+import Project2 from '../components/project2.astro'
+import Project3 from '../components/project3.astro'
+import Experience from '../components/experience.astro'
+import Contact from '../components/contact.astro'
+---
+
+<BaseLayout>
+  <main class="grid-wrapper">
+
+    <div class="card card-hero-main" data-focus="about">
+      <HeroCard />
+    </div>
+    <div class="card card-stack" data-focus="stack">
+      <StackCard />
+    </div>
+
+    <div class="card card-competitive" data-focus="competitive">
+      <CompetitiveCard />
+    </div>
+    <div class="card card-dino" data-focus="game">
+      <GameCard />
+    </div>
+
+    <div class="card card-proj project-color-1" data-focus="proj1">
+      <Project1 />
+    </div>
+    <div class="card card-proj project-color-2" data-focus="proj2">
+      <Project2 />
+    </div>
+    <div class="card card-proj project-color-3" data-focus="proj3">
+      <Project3 />
+    </div>
+
+    <div class="card card-experience" data-focus="experience">
+      <span class="card-label">// live_activity</span>
+      <Experience />
+    </div>
+    <div class="card card-contact" data-focus="contact">
+      <span class="card-label">// contact</span>
+      <Contact />
+    </div>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .grid-wrapper {
+    max-width: 100%;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: auto;
+    align-items: stretch; /*Stretching to align */
+    gap: 12px;
+  }
+
+  .card {
+    border: 1px solid var(--champagne);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; 
+    overflow: hidden;
+  }
+
+  .card:hover {
+    border-color: var(--whiskey-sour);
+    transform: translateY(-2px);
+  }
+
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text);
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    z-index: 5;
+  }
+
+  .card-hero-main   { background: var(--burnt-coffee); }
+  .card-stack       { background: var(--honey-garlic); }
+  .card-competitive { background: var(--whiskey-sour); }
+  .card-dino        { background: var(--burnt-coffee); }
+  .card-experience  { background: var(--honey-garlic); }
+  .card-contact     { background: var(--whiskey-sour); }
+  
+  .project-color-1  { background: var(--honey-garlic); }
+  .project-color-2  { background: var(--whiskey-sour); }
+  .project-color-3  { background: var(--burnt-coffee); }
+
+  
+  /* Row 1 */
+  .card-hero-main {
+    grid-column: 1 / 3;
+    min-height: 320px;
+  }
+  .card-stack {
+    grid-column: 3 / 4;
+    min-height: 320px;
+  }
+
+  /* Row 2 */
+  .card-competitive {
+    grid-column: 1 / 2;
+    min-height: 200px;
+  }
+  .card-dino {
+    grid-column: 2 / 4;
+    min-height: 200px;
+  }
+
+  /* Row 3 */
+  .card-proj {
+    grid-column: span 1;
+    min-height: 220px;
+  }
+
+  /* Row 4 */
+  .card-experience {
+    grid-column: 1 / 3;
+    min-height: 240px;
+  }
+  .card-contact {
+    grid-column: 3 / 4;
+    min-height: 240px;
+  }
+
+  @media (max-width: 992px) {
+    .grid-wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+    .card-hero-main, .card-experience { grid-column: 1 / -1; }
+    .card-stack, .card-competitive, .card-dino, .card-contact, .card-proj { grid-column: span 1; }
+  }
+
+  @media (max-width: 768px) {
+    .grid-wrapper {
+      grid-template-columns: 1fr; /* Single column stack */
+      padding: 1rem;
+      gap: 1rem; /* Slightly smaller gap for mobile */
+    }
+    
+    /* Un-lock all the custom grid placements and heights */
+    .card-hero-main, .card-stack, .card-competitive, .card-dino, .card-proj, .card-experience, .card-contact {
+      grid-column: 1 / -1 !important; /* Force everything to span full width */
+      min-height: auto !important; /* Let content dictate the height */
+    }
+  }
+</style>

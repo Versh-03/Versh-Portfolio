@@ -1,0 +1,63 @@
+<div class="project-card bento-card cpp-card">
+  <div class="proj-header">
+    <span class="proj-label">// architecture: native_cli</span>
+  </div>
+
+  <div class="proj-body">
+    <h3 class="proj-title">
+      <a href="https://github.com/Versh-03/ToDo-Cpp" target="_blank" class="proj-link">
+        ToDo CLI Utility
+      </a>
+    </h3>
+    <p class="proj-desc">High-performance to-do list in native C++ using file binary streams.</p>
+    <div class="cli-window">
+      <div class="cli-line"><span class="c-cyan">$</span> ./todo --list</div>
+      <div class="cli-line text-muted">[1] Implement AABB Collisions <span class="c-green">✓\</span></div>
+      <div class="cli-line">[2] Optimize OpenCV Array Map <span class="c-amber">…</span></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    background: var(--burnt-coffee) !important;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid rgba(133, 67, 30, 0.35) !important;
+    transition: border-color 0.2s ease;
+  }
+
+  .project-card:hover { border-color: rgba(211, 152, 88, 0.5) !important; }
+  .proj-header { display: flex; justify-content: space-between; align-items: center; }
+  .proj-label { font-size: 0.65rem; color: var(--whiskey-sour); font-weight: 700; font-family: var(--font-mono); }
+  
+  .proj-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+  .proj-link { color: var(--champagne); text-decoration: none; transition: color 0.2s ease; }
+  .proj-link:hover { color: var(--whiskey-sour); }
+  
+  .proj-desc { font-size: 0.75rem; color: var(--champagne); opacity: 0.8; font-family: var(--font-mono); line-height: 1.4; margin-top: -0.25rem; }
+  
+  .cli-window { 
+    background: rgba(21, 12, 12, 0.75); 
+    border-radius: 6px; 
+    padding: 0.5rem; 
+    font-family: var(--font-mono); 
+    font-size: 0.65rem; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.25rem; 
+    margin-top: auto; 
+    border: 1px solid rgba(133, 67, 30, 0.15); 
+  }
+  .cli-line { color: var(--champagne); white-space: nowrap; overflow: hidden; }
+  .cli-line.text-muted { opacity: 0.5; }
+  
+  
+  .c-cyan { color: var(--whiskey-sour); } 
+  .c-green { color: var(--champagne); font-weight: 700; }
+  .c-amber { color: var(--whiskey-sour); }
+</style>

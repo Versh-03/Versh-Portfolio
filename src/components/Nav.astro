@@ -1,0 +1,167 @@
+<nav>
+  <div class="nav-side">
+    <div class="nav-logo">&lt;<span class="name">versh</span>/&gt;</div>
+    <div class="nav-session" id="nav-session">[FOCUS: ~/main]</div>
+  </div>
+
+  <div class="nav-center">
+    <span class="nav-time" id="nav-time">00:00:00</span>
+    <span class="nav-date" id="nav-date">MON JAN 1</span>
+  </div>
+
+  <div class="nav-side">
+    <div class="nav-sys-info">
+      <span id="nav-ping">PING: --ms</span>
+      <span class="sys-sep">|</span>
+      <span id="nav-os">OS: LINUX</span>
+    </div>
+    <span class="cat" id="nav-cat" aria-label="cat">ฅ^•ﻌ•^ฅ</span>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background-color: var(--bg);
+    border: 3px solid var(--honey-garlic);
+    box-shadow: 4px 4px 0px 0px var(--burnt-coffee);
+    border-radius: 12px;
+    margin: 0.75rem;
+    width: calc(100% - 1.5rem);
+    font-family: var(--font-mono);
+  }
+
+  .nav-side {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--whiskey-sour);
+  }
+
+  .name {
+    color: var(--champagne);
+    margin: 0 2px;
+  }
+
+  .nav-session {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--whiskey-sour);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav-time {
+    font-size: 1rem;
+    color: var(--champagne);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-date {
+    font-size: 0.7rem;
+    color: var(--whiskey-sour);
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .nav-sys-info {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .sys-sep {
+    color: var(--honey-garlic);
+  }
+
+  .cat {
+    font-size: 1.1rem;
+    color: var(--whiskey-sour);
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  }
+
+  .cat.boop {
+    transform: scaleY(1.6) scaleX(0.8);
+    color: var(--champagne);
+  }
+
+  @media (max-width: 640px) {
+    .nav-session, .nav-sys-info { display: none; }
+    nav { padding: 1rem; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const d = document;
+    const timeEl = d.getElementById('nav-time');
+    const dateEl = d.getElementById('nav-date');
+    const catEl = d.getElementById('nav-cat');
+    const pingEl = d.getElementById('nav-ping');
+    const osEl = d.getElementById('nav-os');
+    const sessionEl = d.getElementById('nav-session');
+
+    function updateClock() {
+      const now = new Date();
+      timeEl.textContent = now.toTimeString().split(' ')[0];
+      dateEl.textContent = now.toDateString().slice(0, 10).toUpperCase();
+    }
+    
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    catEl?.addEventListener('mouseenter', () => catEl.classList.add('boop'));
+    catEl?.addEventListener('mouseleave', () => catEl.classList.remove('boop'));
+
+    const ua = navigator.userAgent.toLowerCase();
+    osEl.textContent = `OS: ${ua.includes('linux') ? 'LINUX' : ua.includes('mac') ? 'DARWIN' : ua.includes('win') ? 'NT' : 'UNK'}`;
+
+    async function updateNetwork() {
+      if (!navigator.onLine) return pingEl.textContent = 'STATUS: OFFLINE';
+      const start = performance.now();
+      try {
+        await fetch('/favicon.ico', { method: 'HEAD', cache: 'no-store' });
+        pingEl.textContent = `PING: ${Math.round(performance.now() - start)}ms`;
+      } catch {
+        pingEl.textContent = 'PING: ERR';
+      }
+    }
+    setInterval(updateNetwork, 10000);
+    updateNetwork();
+
+    d.body.addEventListener('mouseover', (e) => {
+      const target = e.target.closest('[data-focus]');
+      if (target) sessionEl.textContent = `[FOCUS: ~/${target.dataset.focus}]`;
+    });
+    d.body.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget || !e.relatedTarget.closest('[data-focus]')) {
+        sessionEl.textContent = '[FOCUS: ~/main]';
+      }
+    });
+  })();
+</script>

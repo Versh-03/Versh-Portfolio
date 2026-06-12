@@ -1,0 +1,139 @@
+<div class="comp bento-card theme-light-card">
+  <span class="comp-label muted-label">// competitive</span>
+  <div class="platforms">
+    <div class="platform">
+      <div class="platform-header">
+        <span class="platform-name">&gt; Codeforces</span>
+        <span class="platform-handle">versh03</span>
+      </div>
+      <div class="platform-stats">
+        <div class="stat">
+          <span class="stat-label muted-label">rating</span>
+          <span class="stat-val" id="cf-rating">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label muted-label">rank</span>
+          <span class="stat-val" id="cf-rank">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label muted-label">max rating</span>
+          <span class="stat-val" id="cf-max">--</span>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="platform">
+      <div class="platform-header">
+        <span class="platform-name">&gt; LeetCode</span>
+        <span class="platform-handle">versh_</span>
+      </div>
+      <div class="platform-stats">
+        <div class="stat">
+          <span class="stat-label muted-label">solved</span>
+          <span class="stat-val" id="lc-solved">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label muted-label">easy</span>
+          <span class="stat-val" id="lc-easy">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label muted-label">medium</span>
+          <span class="stat-val" id="lc-medium">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label muted-label">hard</span>
+          <span class="stat-val" id="lc-hard">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .comp {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    background-color: var(--champagne) !important;
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+  .comp-label {
+    font-size: 0.7rem;
+    color: var(--honey-garlic) !important;
+    font-weight: 700;
+  }
+  .platforms {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-around;
+    height: 100%;
+  }
+  .platform-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .platform-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--balsamico) !important;
+  }
+  .platform-handle {
+    font-size: 0.75rem;
+    color: var(--honey-garlic) !important;
+    font-weight: 600;
+  }
+  .platform-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-label {
+    font-size: 0.6rem;
+    color: var(--honey-garlic) !important;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .stat-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--balsamico) !important;
+  }
+  .divider {
+    height: 1px;
+    background: var(--honey-garlic);
+    opacity: 0.2;
+  }
+</style>
+
+<script is:inline>
+  window.setTimeout(() => {
+    fetch('https://codeforces.com/api/user.info?handles=versh03')
+      .then(r => r.json())
+      .then(data => {
+        if (data.status !== 'OK') return;
+        const user = data.result[0];
+        document.getElementById('cf-rating').textContent = user.rating ?? 'unrated';
+        document.getElementById('cf-rank').textContent = user.rank ?? '--';
+        document.getElementById('cf-max').textContent = user.maxRating ?? '--';
+      }).catch(() => { document.getElementById('cf-rating').textContent = 'offline'; });
+
+    fetch('https://alfa-leetcode-api.onrender.com/versh_/solved')
+      .then(r => r.json())
+      .then(data => {
+        if (data && data.solvedProblem !== undefined) {
+          document.getElementById('lc-solved').textContent = data.solvedProblem;
+          document.getElementById('lc-easy').textContent = data.easySolved;
+          document.getElementById('lc-medium').textContent = data.mediumSolved;
+          document.getElementById('lc-hard').textContent = data.hardSolved;
+        }
+      }).catch(() => { document.getElementById('lc-solved').textContent = 'offline'; });
+  }, 300);
+</script>

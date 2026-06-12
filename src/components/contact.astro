@@ -1,0 +1,152 @@
+<div class="contact-terminal-container">
+  <div class="contact-header-track">
+    <span class="directory-node">node_01://comms/channels</span>
+  </div>
+
+  <div class="comms-matrix">
+    
+    <a href="https://github.com/Versh-03" target="_blank" class="comm-channel-row">
+      <div class="channel-meta">
+        <span class="channel-arrow">&gt;</span>
+        <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        <span class="channel-name">github</span>
+      </div>
+      <span class="channel-value">@versh03</span>
+    </a>
+
+    <a href="https://linkedin.com/in/versh03" target="_blank" class="comm-channel-row">
+      <div class="channel-meta">
+        <span class="channel-arrow">&gt;</span>
+        <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+        <span class="channel-name">linkedin</span>
+      </div>
+      <span class="channel-value">@versh03</span>
+    </a>
+
+    <a href="mailto:adarshv2k3@gmail.com" class="comm-channel-row">
+      <div class="channel-meta">
+        <span class="channel-arrow">&gt;</span>
+        <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span class="channel-name">email</span>
+      </div>
+      <span class="channel-value">adarshv2k3@gmail.com</span>
+    </a>
+
+  </div>
+
+  <div class="comms-footer-track">
+    <span class="connection-status">[STATUS: LISTENING_FOR_INBOUND_REQUESTS]</span>
+  </div>
+</div>
+
+<style>
+  .contact-terminal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 100%;
+    padding-top: 0.5rem;
+  }
+
+  .contact-header-track {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--whiskey-sour);
+    font-weight: 700;
+  }
+
+  /* CHANNELS NAVIGATION MATRIX */
+  .comms-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .comm-channel-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(234, 206, 170, 0.08);
+    padding: 0.35rem 0;
+    transition: padding-left 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .channel-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .channel-arrow {
+    color: var(--whiskey-sour);
+    font-weight: 700;
+    opacity: 0.5;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .channel-icon {
+    color: var(--champagne);
+    opacity: 0.8;
+    transition: color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .channel-name {
+    color: var(--champagne);
+    font-weight: 600;
+  }
+
+  .channel-value {
+    color: var(--balsamico);
+    background: var(--whiskey-sour);
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Micro interactive feedback hooks on row hover */
+  .comm-channel-row:hover {
+    padding-left: 6px;
+  }
+
+  .comm-channel-row:hover .channel-arrow {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  /* SVG inherits highlight state fluidly */
+  .comm-channel-row:hover .channel-icon {
+    color: var(--whiskey-sour);
+    opacity: 1;
+  }
+
+  .comm-channel-row:hover .channel-value {
+    background: var(--champagne);
+    color: var(--balsamico);
+  }
+
+  /* STATUS BAR CHIP */
+  .comms-footer-track {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+  }
+
+  .connection-status {
+    color: var(--champagne);
+    opacity: 0.35;
+  }
+</style>

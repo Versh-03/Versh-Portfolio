@@ -1,0 +1,143 @@
+<div class="github-activity-container">
+  <div class="git-status-header">
+    <div class="loading-pulse-container">
+      <span class="pulse-dot"></span>
+      <span class="pulse-echo"></span>
+    </div>
+    <span class="status-string">EXEC_STATUS: REAL_EXP_LOADING...</span>
+  </div>
+
+  <div class="graph-viewport">
+    <img 
+      src="https://ghchart.rshah.org/00ff00/Versh-03" 
+      alt="Versh-03 GitHub Contributions Chart"
+      class="raw-git-svg"
+    />
+  </div>
+
+  <div class="git-meta-footer">
+    <span class="terminal-directory">node_01://github/Versh-03</span>
+    <span class="commit-sync-label">[PUSH_STREAM_ACTIVE]</span>
+  </div>
+</div>
+
+<style>
+  .github-activity-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 100%;
+    padding-top: 0.5rem;
+  }
+
+  /* LOADING TRACK ENGINE */
+  .git-status-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--whiskey-sour);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .loading-pulse-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8px;
+    height: 8px;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--whiskey-sour);
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .pulse-echo {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--whiskey-sour);
+    border-radius: 50%;
+    animation: sonar 2s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+    opacity: 0;
+  }
+
+  /* DYNAMIC SVG CANVAS MAP */
+  .graph-viewport {
+    width: 100%;
+    background: rgba(21, 12, 12, 0.5);
+    border: 1px solid rgba(133, 67, 30, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    
+    /* Ensure these scroll properties are set */
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Gives mobile iOS that smooth momentum scroll */
+    
+    display: flex;
+    align-items: center;
+    /* Remove justify-content: center; here so the chart pins to the left on mobile */
+  }
+
+  /* THEME MATRIX FILTER: 
+    Forces the white SVG image nodes to shift directly into your warm Whiskey Sour / Honey Garlic tint profiles!
+  */
+  /* ... keep your other styles, just update this block ... */
+  .raw-git-svg {
+  max-width: 100%;
+  height: auto;
+  min-width: 680px;
+  /* This enhances the color depth and darkens the blocks against the dark card */
+  /*filter: brightness(1.2) contrast(1.5); */
+}
+
+  /* Custom scrollbar handling for responsive viewports */
+  .graph-viewport::-webkit-scrollbar {
+    height: 5px;
+  }
+  .graph-viewport::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .graph-viewport::-webkit-scrollbar-thumb {
+    background: var(--whiskey-sour);
+    border-radius: 3px;
+  }
+
+  /* FOOTER MATRIX */
+  .git-meta-footer {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  .terminal-directory {
+    color: var(--champagne);
+    opacity: 0.5;
+  }
+
+  .commit-sync-label {
+    color: var(--champagne);
+    opacity: 0.35;
+    animation: blink 1.5s steps(2, start) infinite;
+  }
+
+  @keyframes sonar {
+    0% { transform: scale(0.5); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  @keyframes blink {
+    to { visibility: hidden; }
+  }
+</style>

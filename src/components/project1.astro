@@ -1,0 +1,83 @@
+<div class="project-card bento-card tracking-card">
+  <div class="proj-header">
+    <span class="proj-label">// repository: tracking_cv</span>
+  </div>
+
+  <div class="proj-body">
+    <h3 class="proj-title">
+      <a href="https://github.com/Versh-03/HandTracking_Python" target="_blank" class="proj-link">
+        HandTracking Python
+      </a>
+    </h3>
+    <p class="proj-desc">Real-time multi-landmark detection pipeline utilizing MediaPipe architecture and OpenCV frame matrices.</p>
+    
+    <div class="cv-mock-viewport">
+      <div class="cv-frame">
+        <div class="landmark wrist" style="top: 85%; left: 50%;"></div>
+        <div class="landmark thumb-base" style="top: 70%; left: 35%;"></div>
+        <div class="landmark thumb-tip" style="top: 50%; left: 20%;"></div>
+        <div class="landmark index-tip" style="top: 30%; left: 45%;"></div>
+        <svg class="vector-lines" viewBox="0 0 100 100">
+          <line x1="50" y1="85" x2="35" y2="70" stroke="var(--whiskey-sour)" stroke-width="1.5" stroke-dasharray="2" />
+          <line x1="35" y1="70" x2="20" y2="50" stroke="var(--whiskey-sour)" stroke-width="1.5" stroke-dasharray="2" />
+          <line x1="50" y1="85" x2="45" y2="30" stroke="var(--champagne)" stroke-width="1.5" />
+        </svg>
+        <div class="pulse-ring" style="top: 30%; left: 45%;"></div>
+      </div>
+      <div class="cv-telemetry">
+        <span>FPS: 60.2</span>
+        <span>ID: RIGHT_0</span>
+        <span class="status-active">TRACKING</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    background: var(--honey-garlic) !important;
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid rgba(133, 67, 30, 0.35) !important;
+    transition: border-color 0.2s ease;
+  }
+  .project-card:hover { border-color: rgba(211, 152, 88, 0.5) !important; }
+  .proj-header { display: flex; justify-content: space-between; align-items: center; }
+  .proj-label { font-size: 0.65rem; color: var(--whiskey-sour); font-weight: 700; font-family: var(--font-mono); }
+  
+  .proj-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; }
+  .proj-link { color: var(--champagne); text-decoration: none; transition: color 0.2s ease; }
+  .proj-link:hover { color: var(--whiskey-sour); }
+  
+  .proj-desc { font-size: 0.75rem; color: var(--champagne); opacity: 0.8; font-family: var(--font-mono); line-height: 1.4; margin-top: -0.25rem; }
+  
+  .cv-mock-viewport { display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto; }
+  .cv-frame { position: relative; width: 100%; height: 80px; background: rgba(21, 12, 12, 0.6); border: 1px solid rgba(234, 206, 170, 0.15); border-radius: 6px; overflow: hidden; }
+  .landmark { position: absolute; width: 5px; height: 5px; background: var(--champagne); border-radius: 50%; transform: translate(-50%, -50%); }
+  .landmark.index-tip { background: var(--whiskey-sour); z-index: 2; }
+  .vector-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .pulse-ring { position: absolute; width: 15px; height: 15px; border: 1px solid var(--whiskey-sour); border-radius: 50%; transform: translate(-50%, -50%); animation: pulse 1.8s infinite linear; }
+  .cv-telemetry { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.6rem; color: var(--whiskey-sour); }
+  .status-active { color: #4ade80; font-weight: 700; }
+
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+  }
+  /* ... rest of your project1 styles ... */
+  .cv-telemetry { 
+    display: flex; 
+    justify-content: space-between; 
+    font-family: var(--font-mono); 
+    font-size: 0.6rem; 
+    color: var(--whiskey-sour); 
+  }
+  .status-active { 
+    color: var(--champagne); /* Removed generic green */
+    font-weight: 700; 
+  }
+</style>
