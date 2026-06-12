@@ -135,8 +135,10 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    catEl?.addEventListener('mouseenter', () => catEl.classList.add('boop'));
-    catEl?.addEventListener('mouseleave', () => catEl.classList.remove('boop'));
+  catEl?.addEventListener('mouseenter', () => {
+    catEl.classList.add('boop');
+    setTimeout(() => catEl.classList.remove('boop'), 500);
+  });
 
     const ua = navigator.userAgent.toLowerCase();
     osEl.textContent = `OS: ${ua.includes('linux') ? 'LINUX' : ua.includes('mac') ? 'DARWIN' : ua.includes('win') ? 'NT' : 'UNK'}`;

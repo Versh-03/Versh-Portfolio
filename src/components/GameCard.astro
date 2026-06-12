@@ -192,6 +192,7 @@
       gameActive = false;
       if (animationId) cancelAnimationFrame(animationId);
       window.removeEventListener('keydown', handleControls);
+      viewport.removeEventListener('touchstart', handleTouch);
       viewport.classList.add('hidden');
       screen.classList.remove('hidden');
       overlay.classList.add('hidden');
@@ -210,6 +211,8 @@
       
       window.removeEventListener('keydown', handleControls);
       window.addEventListener('keydown', handleControls);
+      viewport.removeEventListener('touchstart', handleTouch);
+      viewport.addEventListener('touchstart', handleTouch, { passive: false });
       loop();
     }
 
@@ -222,6 +225,15 @@
           dino.vy = -7;
           dino.grounded = false;
         }
+      }
+    }
+    function handleTouch(e) {
+      e.preventDefault(); // Stops mobile screen from scrolling or zooming while tapping
+      if (overlay.classList.contains('hidden') === false) {
+        startGame();
+      } else if (dino.grounded) {
+        dino.vy = -7;
+        dino.grounded = false;
       }
     }
 
