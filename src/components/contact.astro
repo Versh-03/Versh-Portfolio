@@ -5,7 +5,7 @@
 
   <div class="comms-matrix">
     
-    <a href="https://github.com/Versh-03" target="_blank" class="comm-channel-row">
+    <a href="https://github.com/Versh-03" target="_blank" rel="noopener noreferrer" class="comm-channel-row">
       <div class="channel-meta">
         <span class="channel-arrow">&gt;</span>
         <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -16,7 +16,7 @@
       <span class="channel-value">@versh-03</span>
     </a>
 
-    <a href="https://linkedin.com/in/versh03" target="_blank" class="comm-channel-row">
+    <a href="https://linkedin.com/in/versh03" target="_blank" rel="noopener noreferrer" class="comm-channel-row">
       <div class="channel-meta">
         <span class="channel-arrow">&gt;</span>
         <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -39,6 +39,18 @@
         <span class="channel-name">email</span>
       </div>
       <span class="channel-value">adarshv2k3@gmail.com</span>
+    </a>
+
+    <a href="https://www.fiverr.com/s/gDeBkVL" target="_blank" rel="noopener noreferrer" class="comm-channel-row hire-row">
+      <div class="channel-meta">
+        <span class="channel-arrow">&gt;</span>
+        <svg class="channel-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        <span class="channel-name">hire me</span>
+      </div>
+      <span class="channel-value hire-value">fiverr →</span>
     </a>
 
   </div>
@@ -64,7 +76,6 @@
     font-weight: 700;
   }
 
-  /* CHANNELS NAVIGATION MATRIX */
   .comms-matrix {
     display: flex;
     flex-direction: column;
@@ -108,7 +119,7 @@
   }
 
   .channel-value {
-    color: var(--balsamico);
+    color: var(--bg);
     background: var(--whiskey-sour);
     font-size: 0.7rem;
     padding: 1px 6px;
@@ -117,7 +128,21 @@
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /* Micro interactive feedback hooks on row hover */
+  /* hire me row stands out */
+  .hire-row {
+    border-bottom: 1px dashed rgba(234, 206, 170, 0.2);
+    margin-top: 0.25rem;
+  }
+
+  .hire-value {
+    background: var(--whiskey-sour);
+    color: var(--bg);
+  }
+
+  .hire-row:hover .hire-value {
+    background: var(--champagne);
+    color: var(--bg);
+  }
   .comm-channel-row:hover {
     padding-left: 6px;
   }
@@ -127,7 +152,6 @@
     transform: translateX(2px);
   }
 
-  /* SVG inherits highlight state fluidly */
   .comm-channel-row:hover .channel-icon {
     color: var(--whiskey-sour);
     opacity: 1;
@@ -135,10 +159,9 @@
 
   .comm-channel-row:hover .channel-value {
     background: var(--champagne);
-    color: var(--balsamico);
+    color: var(--bg);
   }
 
-  /* STATUS BAR CHIP */
   .comms-footer-track {
     margin-top: auto;
     font-family: var(--font-mono);
