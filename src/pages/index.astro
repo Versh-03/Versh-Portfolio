@@ -28,14 +28,18 @@ import Contact from '../components/contact.astro'
       <GameCard />
     </div>
 
-    <div class="card card-proj project-color-1" data-focus="proj1">
-      <Project1 />
-    </div>
-    <div class="card card-proj project-color-2" data-focus="proj2">
-      <Project2 />
-    </div>
-    <div class="card card-proj project-color-3" data-focus="proj3">
-      <Project3 />
+    <div class="projects-row">
+      <div class="card card-proj project-color-1" data-focus="proj1">
+        <Project1 />
+      </div>
+
+      <div class="card card-proj project-color-2" data-focus="proj2">
+        <Project2 />
+      </div>
+
+      <div class="card card-proj project-color-3" data-focus="proj3">
+        <Project3 />
+      </div>
     </div>
 
     <div class="card card-experience" data-focus="experience">
@@ -121,9 +125,11 @@ import Contact from '../components/contact.astro'
   }
 
   /* Row 3 */
-  .card-proj {
-    grid-column: span 1;
-    min-height: 220px;
+  .projects-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
 
   /* Row 4 */
