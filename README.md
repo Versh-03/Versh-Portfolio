@@ -2,11 +2,11 @@
 
 A modern, interactive developer portfolio built with **Astro**, designed to highlight my engineering projects, technical stack, competitive programming progress, and professional journey.
 
-🌐 **Live Website:** [versh-portfolio.vercel.app](https://versh-portfolio.vercel.app)
+ **Live Website:** [versh-portfolio.vercel.app](https://versh-portfolio.vercel.app)
 
 ---
 
-## ✨ Features
+##  Features
 
 * **Modern & Responsive:** Smooth, mobile-first design adapted for all screen sizes.
 * **Component-Driven:** Clean layout built using Astro's modular component structure.
@@ -16,7 +16,7 @@ A modern, interactive developer portfolio built with **Astro**, designed to high
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Frontend & Styling**
 * [Astro](https://astro.build/) — Static site generation & component architecture
@@ -35,7 +35,7 @@ A modern, interactive developer portfolio built with **Astro**, designed to high
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 src/
