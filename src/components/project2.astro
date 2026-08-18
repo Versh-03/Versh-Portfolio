@@ -1,114 +1,122 @@
 <div class="project-card bento-card drawing-card">
-  <div class="proj-header">
-    <span class="proj-label">// pipeline: interactive_draw</span>
-  </div>
-
-  <div class="proj-body">
-    <h3 class="proj-title">
-      <a href="https://github.com/Versh-03/AirDrawing_Python" target="_blank" class="proj-link">
-        AirDrawing Tool
-      </a>
-    </h3>
-    <p class="proj-desc">Webcam gesture sketch utility allowing dynamic digital drawing via finger landmark motion mapping.</p>
-    
-    <div class="draw-viewport" id="air-draw-panel">
-      <svg class="canvas-trace" width="100%" height="80px">
-        <path d="M 20 60 Q 90 10, 160 50 T 320 30" fill="none" stroke="var(--burnt-coffee)" stroke-width="2" class="trace-path" />
-      </svg>
-      <div class="canvas-indicator">// trace_active</div>
+    <div class="proj-header">
+        <span class="proj-label">// pipeline: interactive_effects</span>
     </div>
-  </div>
+    <div class="proj-body">
+        <h3 class="proj-title">
+            <a
+                href="https://github.com/Versh-03/HandBox-Python"
+                target="_blank"
+                class="proj-link"
+            >
+                HandBox
+            </a>
+        </h3>
+        <p class="proj-desc">
+            Two-hand gesture toy that maps a live effects window between your
+            index fingertips — pinch to cycle invert and pixelate effects in
+            real time.
+        </p>
+
+        <div class="draw-viewport" id="air-draw-panel">
+            <svg class="canvas-trace" width="100%" height="80px">
+                <path
+                    d="M 20 60 Q 90 10, 160 50 T 320 30"
+                    fill="none"
+                    stroke="var(--burnt-coffee)"
+                    stroke-width="2"
+                    class="trace-path"></path>
+            </svg>
+            <div class="canvas-indicator">// trace_active</div>
+        </div>
+    </div>
 </div>
-
 <style>
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: 100%;
-    background: var(--whiskey-sour) !important;
-    border-radius: 16px;
-    padding: 1.25rem;
-    border: 1px solid rgba(133, 67, 30, 0.35) !important;
-    transition: border-color 0.2s ease;
-  }
-  
-  .project-card:hover { 
-    border-color: rgba(52, 21, 15, 0.4) !important; 
-  }
-  
-  .proj-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-  }
-  
-  .proj-label { 
-    font-size: 0.65rem; 
-    color: var(--burnt-coffee); 
-    font-weight: 700; 
-    font-family: var(--font-mono); 
-  }
-  
-  .proj-title { 
-    font-family: var(--font-display); 
-    font-size: 1.15rem; 
-    font-weight: 700; 
-  }
-  
-  /* Link matches the dark text theme of the card */
-  .proj-link { 
-    color: var(--balsamico); 
-    text-decoration: none; 
-    transition: opacity 0.2s ease; 
-  }
-  
-  .proj-link:hover { 
-    opacity: 0.75; 
-  }
-  
-  .proj-desc { 
-    font-size: 0.75rem; 
-    color: var(--balsamico); 
-    opacity: 0.85; 
-    font-family: var(--font-mono); 
-    line-height: 1.4; 
-    margin-top: -0.25rem; 
-  }
-  
-  /* Drawing Workspace Area - Dark contrast frame box */
-  .draw-viewport { 
-    position: relative; 
-    width: 100%; 
-    height: 80px; 
-    background: rgba(21, 12, 12, 0.75); 
-    border-radius: 6px; 
-    overflow: hidden; 
-    margin-top: auto; 
-    border: 1px solid rgba(133, 67, 30, 0.15);
-  }
-  
-  .trace-path { 
-    stroke-dasharray: 600; 
-    stroke-dashoffset: 600; 
-    transition: stroke-dashoffset 2s linear; 
-  }
-  
-  .project-card:hover {
-    border-color: rgba(211, 152, 88, 0.5) !important;
-  }
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+        background: var(--whiskey-sour) !important;
+        border-radius: 16px;
+        padding: 1.25rem;
+        border: 1px solid rgba(133, 67, 30, 0.35) !important;
+        transition: border-color 0.2s ease;
+    }
 
-  .project-card:hover .trace-path { 
-    stroke-dashoffset: 0; 
-  }
-  
-  .canvas-indicator { 
-    position: absolute; 
-    bottom: 6px; 
-    left: 8px; 
-    font-family: var(--font-mono); 
-    font-size: 0.55rem; 
-    color: var(--whiskey-sour); 
-    opacity: 0.6;
-  }
+    .project-card:hover {
+        border-color: rgba(52, 21, 15, 0.4) !important;
+    }
+
+    .proj-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .proj-label {
+        font-size: 0.65rem;
+        color: var(--burnt-coffee);
+        font-weight: 700;
+        font-family: var(--font-mono);
+    }
+
+    .proj-title {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 700;
+    }
+
+    .proj-link {
+        color: var(--balsamico);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .proj-link:hover {
+        opacity: 0.75;
+    }
+
+    .proj-desc {
+        font-size: 0.75rem;
+        color: var(--balsamico);
+        opacity: 0.85;
+        font-family: var(--font-mono);
+        line-height: 1.4;
+        margin-top: -0.25rem;
+    }
+
+    .draw-viewport {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        background: rgba(21, 12, 12, 0.75);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: auto;
+        border: 1px solid rgba(133, 67, 30, 0.15);
+    }
+
+    .trace-path {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        transition: stroke-dashoffset 2s linear;
+    }
+
+    .project-card:hover {
+        border-color: rgba(211, 152, 88, 0.5) !important;
+    }
+    .project-card:hover .trace-path {
+        stroke-dashoffset: 0;
+    }
+
+    .canvas-indicator {
+        position: absolute;
+        bottom: 6px;
+        left: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.55rem;
+        color: var(--whiskey-sour);
+        opacity: 0.6;
+    }
 </style>
